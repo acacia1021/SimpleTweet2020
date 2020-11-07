@@ -12,6 +12,7 @@ public class Tweet {
     public String body;
     public String createdAt;
     public User user;
+    public String timeStamp;
 
     public static Tweet fromJson(JSONObject jsonObject) throws JSONException {
         Tweet tweet = new Tweet();
@@ -28,4 +29,8 @@ public class Tweet {
         }
         return tweets;
     }
+    public String getFormattedTimeStamp(){
+        return TimeFormatter.getTimeDifference(this.createdAt);
+    }
+
 }
